@@ -5,10 +5,13 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+import Alert from './alert'
+import Button from 'react-bootstrap/Button'
 import Header from "./header"
 import "./layout.css"
 import Menu from './menu'
@@ -23,12 +26,13 @@ const Layout = ({ children }) => {
       }
     }
   `)
-
+  const [show, setShow] = useState(true);
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
       <Menu />
-       <div
+      <Alert />
+      <div
         style={{
           margin: `0 auto`,
           maxWidth: 960,
