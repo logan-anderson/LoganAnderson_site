@@ -1,45 +1,70 @@
 import React from "react"
 import { Link } from "gatsby"
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
+import Test from "../components/part-test"
 import Layout from "../components/layout"
 import compImg from '../images/IMG_0407.jpeg'
 import SEO from "../components/seo"
 import Image from "react-bootstrap/Image"
+
+
+const Top = (data) => (
+  <div>
+
+  </div>
+)
 const IndexPage = (data) => (
-  <Layout>
-    <SEO title="Home" />
-    
+  <Layout
+    Top={<Test />}
+  >
+    {/* <Layout.Top>
+      <Test>
+      </Test>
+    </Layout.Top> */}
+    <SEO title="Home"
+      description="This is the personal website of Logan Anderson. Logan Anderson is a full time student and part time web developer. He is from Prince Edward island. He loves coding and finding new projects"
+
+    />
+
     <div>
-      <div class="row  align-items-center">
-        <div class="col">
-          <h1 class="py-5 text-center">
-            Welcome to Logan Anderson.ca
+      <Row className="align-items-center">
+        <Col>
+          <h1 class="header py-5 text-center">
+            Welcome to Logan.bio
           </h1>
-        </div>
-      </div>
+        </Col>
+      </Row>
+
+
       {/* <!-- about me --> */}
-      <div class="row">
-        <div class="col-md-9">
+      <Row>
+        <Col md='9'>
           <h3 class="my-2">A Little bit about me</h3>
-          <p class="">I am a part-time web developer and full-time student completing a double
+          <p class="">Logan Anderson am a part-time web developer and full-time student completing a double
           major in
-          Computer Science and Math. I am passionate about computer science and learning. My main interests
+          Computer Science and Math. He passionate about computer science and learning. My main interests
           include
-          full-stack development, machine learning, Linux, and competitive programming. I love to learn and am
+          full-stack development, machine learning, Linux, and competitive programming. He loves to learn and is
           always
-                    trying to expand my knowledge base by reading and completing courses online and at school</p>
-        </div>
+                    trying to expand his knowledge base by reading and completing courses online and at school</p>
+        </Col>
         <div class="col-md-3">
-            <Image src={compImg} alt="computer" fluid rounded/>
+          <Image src={compImg} alt="computer" fluid rounded />
         </div>
-      </div>
-      <div class="row align-items-center " id="more-about-me">
-        <div class="col">
+      </Row>
+      <Row className="row align-items-center " id="more-about-me">
+
+        <Col md='9'>
           <h2 class="pt-3"> More About Me </h2>
           {/* <!-- skills --> */}
           <h4 class="py-2">Programming Languages and technologies I am familiar with</h4>
-          <div class="row justify-content-center">
-            <div class="col-12 col-md-3">
+          <Row className="justify-content-center">
+            <Col
+              xs={12}
+              md={3}
+            >
               <ul>
                 <li>Java</li>
                 <li>Javascript</li>
@@ -48,8 +73,9 @@ const IndexPage = (data) => (
                 <li>Python</li>
                 <li>django</li>
               </ul>
-            </div>
-            <div class="col-12 col-md-3">
+            </Col>
+            <Col xs={12} md={3}
+            >
               <ul>
                 <li>c / c++</li>
                 <li>Shell Scripting</li>
@@ -58,8 +84,8 @@ const IndexPage = (data) => (
                 <li>DynamoDB</li>
                 <li>SQL</li>
               </ul>
-            </div>
-          </div>
+            </Col>
+          </Row>
 
           {/* <!-- Courses Complete --> */}
           <h4 class="py-2">Courses Completed</h4>
@@ -84,8 +110,8 @@ const IndexPage = (data) => (
               </ul>
             </div>
           </div>
-        </div>
-      </div>
+        </Col>
+      </Row>
     </div>
     {/* <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
