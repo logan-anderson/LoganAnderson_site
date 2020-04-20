@@ -1,7 +1,9 @@
 import React from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card"
 
 import Test from "../components/part-test"
 import Layout from "../components/layout"
@@ -10,30 +12,27 @@ import SEO from "../components/seo"
 import Image from "react-bootstrap/Image"
 
 
-const Top = (data) => (
-  <div>
 
-  </div>
-)
-const IndexPage = (data) => (
+const IndexPage = ({ data }) => (
   <Layout
     Top={<Test />}
   >
-    {/* <Layout.Top>
-      <Test>
-      </Test>
-    </Layout.Top> */}
+
     <SEO title="Home"
       description="This is the personal website of Logan Anderson. Logan Anderson is a full time student and part time web developer. He is from Prince Edward island. He loves coding and finding new projects"
 
     />
-
     <div>
-      <Row className="align-items-center">
-        <Col>
+      <Row className=" justify-content-center">
+        <Col >
           <h1 class="header py-5 text-center">
             Welcome to Logan.bio
           </h1>
+        </Col>
+      </Row>
+      <Row className=" justify-content-center">
+        <Col xs="auto" className="mb-4">
+          <Button href="/projects" variant="primary">See Projects</Button>
         </Col>
       </Row>
 
@@ -54,7 +53,7 @@ const IndexPage = (data) => (
           <Image src={compImg} alt="computer" fluid rounded />
         </div>
       </Row>
-      <Row className="row align-items-center " id="more-about-me">
+      <Row className="row mt-4" id="more-about-me">
 
         <Col md='9'>
           <h2 class="pt-3"> More About Me </h2>
@@ -111,6 +110,30 @@ const IndexPage = (data) => (
             </div>
           </div>
         </Col>
+        {/* recent projects */}
+        <Col md='3' >
+          <h3 class='pt-3'>
+            Recent Projects
+          </h3>
+          {data.allMarkdownRemark.edges.map(post => (
+            <div key={post.node.id} class="pb-2">
+              <Card>
+                <Card.Body>
+                  <Card.Title>
+                    {post.node.frontmatter.title}
+                  </Card.Title>
+                  <Card.Text>
+                  <small>{post.node.frontmatter.description} </small>
+                  </Card.Text>
+                  <Card.Link href={post.node.frontmatter.path}>
+                  See More
+                  </Card.Link>
+                </Card.Body>
+              </Card>
+            </div>
+          ))}
+        </Col>
+
       </Row>
     </div>
     {/* <h1>Hi people</h1>
@@ -123,5 +146,24 @@ const IndexPage = (data) => (
   </Layout>
 )
 
-
+export const pageQuery = graphql`
+    query rprojectIndexQuery{
+        
+            allMarkdownRemark {
+              edges {
+                node {
+                id
+                  frontmatter {
+                    title
+                    path
+                    date
+                    author
+                    description
+                  }
+                }
+              }
+            }
+          }
+          
+`
 export default IndexPage

@@ -4,24 +4,35 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const ProjectsPage = ({data}) => (
+
+import Breadcrumb from 'react-bootstrap/Breadcrumb'
+import Button from 'react-bootstrap/Button'
+
+const ProjectsPage = ({ data }) => (
   <Layout>
     <SEO title="projects" />
-    <h1>My Projects</h1>
-    {data.allMarkdownRemark.edges.map( post=> (
-        <div key={ post.node.id }> 
-            <h3>
-                {post.node.frontmatter.title}
-            </h3>
-    <small>Posted by {post.node.frontmatter.author} {post.node.frontmatter.date} </small>
-        <br/>
-        <br/>
-        <Link to={post.node.frontmatter.path }>ReadMore</Link>
-        <br/>
-        <br/>
-        <hr/>
-        </div>
-    ) ) }
+    <Breadcrumb id="no-background">
+      <Breadcrumb.Item href="/">
+        Home
+      </Breadcrumb.Item>
+      <Breadcrumb.Item active href="/projects">
+        Projects
+     </Breadcrumb.Item>
+    </Breadcrumb>
+    <h1 class="mb-3">
+      My Projects
+    </h1>
+    {data.allMarkdownRemark.edges.map(post => (
+      <div key={post.node.id}>
+        <h3>
+          {post.node.frontmatter.title}
+        </h3>
+        <small>Updated {post.node.frontmatter.date} </small>
+        <p>{post.node.frontmatter.description} </p>
+        <Button variant="outline-primary" href={post.node.frontmatter.path}  >See More</Button>
+        <hr />
+      </div>
+    ))}
   </Layout>
 )
 
@@ -37,6 +48,7 @@ export const pageQuery = graphql`
                     path
                     date
                     author
+                    description
                   }
                 }
               }

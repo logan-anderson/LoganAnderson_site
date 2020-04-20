@@ -32,21 +32,18 @@ const Layout = (props) => {
   return (
     <>
      
-        {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
         <Menu />
-        {/* <Test>
-      </Test> */}
-        <Alert />
+        {/* <Alert /> */}
         {props.Top}
         <div>
           <Container>
             <main>{props.children}</main>
           </Container>
-          <footer>
+          {/* <footer>
             © {new Date().getFullYear()}, Built with
           {` `}
             <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
+          </footer> */}
         </div>
       {/* </Test> */}
     </>
