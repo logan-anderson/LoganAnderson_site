@@ -1,6 +1,6 @@
 # This the code for my personal website 
 
-## tech used
+## Tech used
 - gatsby
 - react
 - markdown
@@ -10,5 +10,5 @@
 gatsby develop
 ```
 
-## live version 
+## Live version 
 https://logan.bio

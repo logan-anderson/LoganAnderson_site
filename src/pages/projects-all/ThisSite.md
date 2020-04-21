@@ -19,4 +19,4 @@ gatsby develop
 ```
 
 ## Live version 
-This live version is hosted on netlify  https://logan.bio
+This live version is hosted on netlify https://logan.bio
