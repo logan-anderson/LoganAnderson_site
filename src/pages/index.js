@@ -25,7 +25,7 @@ const IndexPage = ({ data }) => (
       <Row className=" justify-content-center">
         <Col >
           <h1 class="header py-5 text-center">
-            Welcome to Logan.bio
+            Logan Anderson
           </h1>
         </Col>
       </Row>
