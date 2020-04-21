@@ -39,10 +39,10 @@ const IndexPage = ({ data }) => (
       {/* <!-- about me --> */}
       <Row>
         <Col md='9'>
-          <h3 class="my-2">A Little bit about me</h3>
-          <p class="">Logan Anderson am a part-time web developer and full-time student completing a double
+          <h3 class="my-2">A Little bit about Logan</h3>
+          <p class="">Logan Anderson is a part-time web developer and full-time student completing a double
           major in
-          Computer Science and Math. He passionate about computer science and learning. His main interests
+          Computer Science and Math. He's passionate about computer science and learning. His main interests
           include
           full-stack development, machine learning, Linux, and competitive programming. He loves to learn and is
           always
@@ -57,7 +57,7 @@ const IndexPage = ({ data }) => (
         <Col md='9'>
           <h2 class="pt-3"> More About Me </h2>
           {/* <!-- skills --> */}
-          <h4 class="py-2">Programming Languages and technologies I am familiar with</h4>
+          <h4 class="py-2">Programming Languages and technologies</h4>
           <Row className="justify-content-center">
             <Col
               xs={12}
