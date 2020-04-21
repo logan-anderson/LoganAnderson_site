@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import { graphql } from 'gatsby';
 import Layout from "../components/layout"
 import Breadcrumb from 'react-bootstrap/Breadcrumb'
@@ -24,6 +23,7 @@ const Template = ({ data }) => {
                 <hr />
                 {/* <h1>{post.frontmatter.title}</h1> */}
                 <div dangerouslySetInnerHTML={{ __html: post.html }} />
+                <p>Code is available on GitHub <a target="_blank" rel="noopener noreferrer" href={post.frontmatter.gitLink} >here</a> </p>
             </div>
         </Layout>
 
@@ -38,6 +38,7 @@ export const postQuery = graphql`
                 title
                 author
                 date
+                gitLink
             }
         }
     }

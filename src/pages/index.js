@@ -1,5 +1,5 @@
 import React from "react"
-// import { Link } from "gatsby"
+import { graphql } from 'gatsby';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
@@ -43,7 +43,7 @@ const IndexPage = ({ data }) => (
           <h3 class="my-2">A Little bit about me</h3>
           <p class="">Logan Anderson am a part-time web developer and full-time student completing a double
           major in
-          Computer Science and Math. He passionate about computer science and learning. My main interests
+          Computer Science and Math. He passionate about computer science and learning. His main interests
           include
           full-stack development, machine learning, Linux, and competitive programming. He loves to learn and is
           always
@@ -115,7 +115,7 @@ const IndexPage = ({ data }) => (
           <h3 class='pt-3'>
             Recent Projects
           </h3>
-          {data.allMarkdownRemark.edges.map(post => (
+          {data.allMarkdownRemark.edges.slice(0, 2).map(post => (
             <div key={post.node.id} class="pb-2">
               <Card>
                 <Card.Body>
@@ -136,13 +136,6 @@ const IndexPage = ({ data }) => (
 
       </Row>
     </div>
-    {/* <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div> */}
-    {/* <Link to="/page-2/">Go to page 2</Link> */}
   </Layout>
 )
 
