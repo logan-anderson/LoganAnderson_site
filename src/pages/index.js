@@ -55,7 +55,7 @@ const IndexPage = ({ data }) => (
       <Row className="row mt-4" id="more-about-me">
 
         <Col md='9'>
-          <h2 class="pt-3"> More About Me </h2>
+          {/* <h2 class="pt-3"></h2> */}
           {/* <!-- skills --> */}
           <h4 class="py-2">Programming Languages and technologies</h4>
           <Row className="justify-content-center">
