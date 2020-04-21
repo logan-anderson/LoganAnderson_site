@@ -10,7 +10,9 @@ import Button from 'react-bootstrap/Button'
 
 const ProjectsPage = ({ data }) => (
   <Layout>
-    <SEO title="projects" />
+    <SEO title="Projects"
+    description="Here you will find a list of projects that Logan Anderson has Completed. You can see how Logan Anderson did his projects."
+    />
     <Breadcrumb id="no-background">
       <Breadcrumb.Item href="/">
         Home
@@ -29,7 +31,7 @@ const ProjectsPage = ({ data }) => (
         </h3>
         <small>Updated {post.node.frontmatter.date} </small>
         <p>{post.node.frontmatter.description} </p>
-        <Button variant="outline-primary" href={post.node.frontmatter.path}  >See More</Button>
+        <Button variant="outline-primary" href={post.node.frontmatter.path}>See More</Button>
         <hr />
       </div>
     ))}

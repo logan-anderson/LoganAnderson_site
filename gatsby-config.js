@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Logan Anderson`,
-    description: `The personal website of Logan Anderson`,
+    description: `The personal website of Logan Anderson. Logan Anderson is a web developer in Prince Edward Island. His main interest's are full-stack development. He addends the University of Prince Edward Island. He can make websites like this one`,
     author: `Logan Anderson`,
   },
   plugins: [

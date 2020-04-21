@@ -2,12 +2,14 @@ import React from 'react'
 import { graphql } from 'gatsby';
 import Layout from "../components/layout"
 import Breadcrumb from 'react-bootstrap/Breadcrumb'
+import SEO from "../components/seo"
 const Template = ({ data }) => {
     const post = data.markdownRemark;
-
-
     return (
         <Layout>
+            <SEO title={post.frontmatter.title}
+                description={`${post.frontmatter.description} Logan Anderson complete this project.`}
+            />
             <div>
                 <Breadcrumb id="no-background">
                     <Breadcrumb.Item href="/">
@@ -17,7 +19,7 @@ const Template = ({ data }) => {
                         Projects
                     </Breadcrumb.Item>
                     <Breadcrumb.Item active>
-                            {post.frontmatter.title}
+                        {post.frontmatter.title}
                     </Breadcrumb.Item>
                 </Breadcrumb>
                 <hr />
@@ -39,6 +41,7 @@ export const postQuery = graphql`
                 author
                 date
                 gitLink
+                description
             }
         }
     }

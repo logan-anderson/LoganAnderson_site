@@ -15,12 +15,11 @@ import Image from "react-bootstrap/Image"
 
 const IndexPage = ({ data }) => (
   <Layout
-    Top={<Test />}
+    Top={<Test/>}
   >
 
     <SEO title="Home"
-      description="This is the personal website of Logan Anderson. Logan Anderson is a full time student and part time web developer. He is from Prince Edward island. He loves coding and finding new projects"
-
+      description="The personal website of Logan Anderson. Logan Anderson is a web developer in Prince Edward Island. His main interest's are full-stack development. He addends the University of Prince Edward Island. He can make websites like this one"
     />
     <div>
       <Row className=" justify-content-center">
