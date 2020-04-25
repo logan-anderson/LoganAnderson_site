@@ -1,9 +1,9 @@
 ---
-path: '/note-app'
+title: List Tracker Web App
+path: /note-app
 date: '2020-04-18'
-title: 'List Tracker Web App'
-description: 'Simple list tracking app using nodejs and passport'
-author: 'Logan Anderson'
+description: Simple list tracking app using nodejs and passport
+author: Logan Anderson
 gitLink: 'https://github.com/logan-anderson/note-app'
 ---
 

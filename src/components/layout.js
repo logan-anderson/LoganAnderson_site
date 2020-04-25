@@ -7,6 +7,9 @@
 
 import React from "react"
 import PropTypes from "prop-types"
+import { RemarkCreatorPlugin } from 'gatsby-tinacms-remark'
+import { withPlugin } from 'tinacms'
+
 // import { useStaticQuery, graphql } from "gatsby"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -32,13 +35,7 @@ const Layout = (props) => {
           <Container>
             <main>{props.children}</main>
           </Container>
-          {/* <footer>
-            © {new Date().getFullYear()}, Built with
-          {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer> */}
         </div>
-      {/* </Test> */}
     </>
   )
 }
@@ -46,5 +43,49 @@ const Layout = (props) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
+const CreatePostPlugin = new RemarkCreatorPlugin({
+  label: 'New Project',
+  fields: [
+    {
+      name: 'title',
+      component: 'text',
+      label: 'Title',
+      placeholder: 'Title of project',
+      description:
+        'Title of project',
+    },
+    {
+      name: 'description',
+      component: 'text',
+      label: 'Description',
+      placeholder: 'A little bit about the project',
+      description:
+        'A little bit about the project',
+    },
+    {
+      name: 'gitLink',
+      component: 'text',
+      label: 'Git Link',
+      placeholder: 'https://github.com/logan-anderson/LoganAnderson_site',
+      description:
+        'The link to github',
+    },
 
-export default Layout
+    
+  ],
+  filename: form => {
+    let slug = form.title.replace(/\s+/, '-').toLowerCase()
+    return `src/pages/projects-all/${slug}/index.md`
+  },
+  frontmatter: form => ({
+    title: form.title,
+    date: new Date(),
+    gitLink: form.gitLink,
+    description: form.description,
+    path: '/' + form.title.replace(/\s+/, '-').toLowerCase(),
+    author: 'Logan Anderson'
+
+  }),
+  body: form => `This is a new blog post. Please write some content.`,
+})
+export default withPlugin(Layout, CreatePostPlugin)

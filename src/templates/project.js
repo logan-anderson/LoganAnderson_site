@@ -1,10 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby';
+import { useLocalRemarkForm, remarkForm, DeleteAction } from 'gatsby-tinacms-remark'
+
+
 import Layout from "../components/layout"
 import Breadcrumb from 'react-bootstrap/Breadcrumb'
 import SEO from "../components/seo"
 const Template = ({ data }) => {
-    const post = data.markdownRemark;
+    const [post] = useLocalRemarkForm(data.markdownRemark);
+
     return (
         <Layout>
             <SEO title={post.frontmatter.title}
@@ -34,11 +38,11 @@ const Template = ({ data }) => {
 export const postQuery = graphql`
     query PostByPath($path: String!){
         markdownRemark(frontmatter: { path: {eq: $path}}){
+            ...TinaRemark
             html
             frontmatter {
                 path
                 title
-                author
                 date
                 gitLink
                 description
@@ -46,5 +50,49 @@ export const postQuery = graphql`
         }
     }
 `
+const ProjectForm = {
+    label: 'Project',
+    actions: [DeleteAction],
+    fields: [
+        {
+            label: 'Path',
+            name: 'frontmatter.path',
+            description: 'Enter the URL',
+            component: 'text',
+        },
+        {
+            label: 'Title',
+            name: 'frontmatter.title',
+            description: 'Enter the title of the project here',
+            component: 'text',
+        },
+        {
+            label: 'Date',
+            name: 'frontmatter.date',
+            description: 'Enter the date of the project here',
+            component: 'text',
+        },
+        {
+            label: 'GitHub Link',
+            name: 'frontmatter.gitLink',
+            description: 'Enter the github link of the project here',
+            component: 'text',
+        },
+        {
+            label: 'Description',
+            name: 'frontmatter.description',
+            description: 'Enter the project description',
+            component: 'textarea',
+        },
+        {
+            label: 'Content',
+            name: 'rawMarkdownBody',
+            description: 'Enter content',
+            component: 'markdown',
+        },
 
-export default Template
+    ],
+}
+
+
+export default remarkForm(Template, ProjectForm)
