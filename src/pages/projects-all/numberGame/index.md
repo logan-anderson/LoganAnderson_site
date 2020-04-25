@@ -1,9 +1,9 @@
 ---
-path: '/Number-Game'
+title: Number Trivia App
+path: /Number-Game
 date: '2020-04-18'
-title: 'Number Trivia App'
-description: 'number game website that uses the numbers api'
-author: 'Logan Anderson'
+description: number game website that uses the numbers api
+author: Logan Anderson
 gitLink: 'https://github.com/logan-anderson/number-game'
 ---
 
