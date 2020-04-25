@@ -1,11 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby';
 import { useLocalRemarkForm, remarkForm, DeleteAction } from 'gatsby-tinacms-remark'
-
+import ReactMarkdown from 'react-markdown'
 
 import Layout from "../components/layout"
 import Breadcrumb from 'react-bootstrap/Breadcrumb'
 import SEO from "../components/seo"
+
+
 const Template = ({ data }) => {
     const [post] = useLocalRemarkForm(data.markdownRemark);
 
@@ -27,8 +29,10 @@ const Template = ({ data }) => {
                     </Breadcrumb.Item>
                 </Breadcrumb>
                 <hr />
-                {/* <h1>{post.frontmatter.title}</h1> */}
-                <div dangerouslySetInnerHTML={{ __html: post.html }} />
+
+                <ReactMarkdown source={post.rawMarkdownBody}> 
+
+                </ReactMarkdown>
                 <p>Code is available on GitHub <a target="_blank" rel="noopener noreferrer" href={post.frontmatter.gitLink} >here</a> </p>
             </div>
         </Layout>
