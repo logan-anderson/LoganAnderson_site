@@ -32,7 +32,6 @@ const Template = ({ data }) => {
 
                 <ReactMarkdown source={post.rawMarkdownBody}> 
                 </ReactMarkdown>
-                <ReactMarkdown source={modifiedValues.markdownContent}></ReactMarkdown>
                 <p>Code is available on GitHub <a target="_blank" rel="noopener noreferrer" href={post.frontmatter.gitLink} >here</a> </p>
             </div>
         </Layout>
