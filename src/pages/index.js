@@ -7,7 +7,7 @@ import Card from "react-bootstrap/Card"
 
 import Test from "../components/part-test"
 import Layout from "../components/layout"
-import compImg from '../images/IMG_0407.jpeg'
+import compImg from '../images/IMG_0407-small.jpg'
 import SEO from "../components/seo"
 import Image from "react-bootstrap/Image"
 
