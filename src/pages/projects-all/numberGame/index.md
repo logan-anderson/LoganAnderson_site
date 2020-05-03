@@ -17,6 +17,6 @@ Hosted using github pages and is available online [here](http://number.loganande
 ## Tech used
 
 1. javascript
-2. Juery
+2. Jquery
 3. bootstrap 4
 4. html/css
