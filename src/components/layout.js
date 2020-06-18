@@ -29,13 +29,13 @@ const Layout = (props) => {
   // `)
   return (
     <>
-        <Menu />
-        {props.Top}
-        <div>
-          <Container>
-            <main>{props.children}</main>
-          </Container>
-        </div>
+      <Menu />
+      {props.Top}
+      <div>
+        <Container>
+          <main>{props.children}</main>
+        </Container>
+      </div>
     </>
   )
 }
@@ -71,7 +71,7 @@ const CreatePostPlugin = new RemarkCreatorPlugin({
         'The link to github',
     },
 
-    
+
   ],
   filename: form => {
     let slug = form.title.replace(/\s+/, '-').toLowerCase()
